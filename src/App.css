@@ -1,6 +1,65 @@
 .App {
   text-align: center;
-  width: 500 px;
-  height: 500 px;
+  width: 500px;
+  height: 600px;
   border: 1px solid black;
+}
+
+.title{
+  height: 49px;
+}
+
+.board {
+  width: 499px;
+  height: 499px;
+  border: 1px solid black;
+  border-bottom: none;
+}
+
+.board .row {
+  display: flex;
+  height: 49px;
+  border: 1px solid black;
+}
+
+.board .row .cell-open,
+.board .row .cell-closed {
+border: 1px solid black;
+width: 49px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.board .row .cell-open {
+background-color: #d4d4d4; 
+}
+
+.board .row .cell-open:hover {
+  background-color: #d4d4d4; 
+}
+
+.board .row .cell-closed:hover {
+background-color: #b6b6b6; 
+}
+
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  height: 99px;
+  justify-content: space-between;
+  font-size: 15px;
+  align-items: center;
+}
+
+.reset,
+.easy,
+.hard {
+  width: 50px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
