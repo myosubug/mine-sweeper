@@ -72,7 +72,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1 className="title">Sean's MineSweeper!</h1>
+        <h1 className="title">mInE sWeEpEr</h1>
         <Navbar flagCount = {this.state.flag} status={this.state.status} easy={this.easy} hard={this.hard.bind(this)}/>
         <Board 
           row={this.state.row} 
