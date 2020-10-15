@@ -52,7 +52,7 @@ class App extends React.Component {
 
 
   endGame = () => {
-    this.setState({status: "ended"});
+    this.setState({status: "ended"},alert("You stepped on a mine :( please try again!"));
   }
 
 
