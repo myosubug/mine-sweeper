@@ -1,8 +1,9 @@
 .App {
   text-align: center;
-  width: 500px;
+  width: 800px;
   height: 600px;
   border: 1px solid black;
+  margin: auto;
 }
 
 .title{
@@ -10,23 +11,23 @@
 }
 
 .board {
-  width: 499px;
+  width: 799px;
   height: 499px;
-  border: 1px solid black;
+  border: 0.5px solid black;
   border-bottom: none;
 }
 
 .board .row {
   display: flex;
   height: 49px;
-  border: 1px solid black;
+  border: 0.5px solid black;
 }
 
 .board .row .cell-open,
 .board .row .cell-closed {
-border: 1px solid black;
-width: 49px;
+border: 0.5px solid black;
 display: flex;
+width: 79px;
 justify-content: center;
 align-items: center;
 }

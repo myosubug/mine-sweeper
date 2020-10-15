@@ -5,13 +5,40 @@ class Board extends React.Component{
     constructor(props){
         super(props);
         this.initial = true;
+        this.ended = false;
         this.state = {
             rows: this.initialize(props)  
         };
     }
+
+    componentWillReceiveProps(newProps){
+        if (this.props.mode === newProps.mode){
+            if (this.props.openCell > newProps.openCell)
+            {
+                this.setState({
+                    rows: this.initialize(newProps)  
+                });
+                this.initial = true;
+                this.ended = false;
+            }
+        }
+        else {
+        
+            if (this.props.openCell >= newProps.openCell){
+            
+            this.setState({
+                rows: this.initialize(newProps)  
+            });
+            this.initial = true;
+            this.ended = false;
+           }
+    }
+    }
     
     initialize = props => {
+        
         let board = [];
+        
         for (let i = 0; i < props.row; i++){
             board.push([]);
             for (let j = 0; j < props.col; j++){
@@ -27,10 +54,14 @@ class Board extends React.Component{
         }
         //for testing board
         //console.table(board);
+        
         return board;
     };
 
     open = cell => {
+        if (this.props.status === "ended"){
+            return;
+        }
         let rows = this.state.rows;
         let current = rows[cell.x][cell.y];
         if (this.initial){
@@ -42,7 +73,7 @@ class Board extends React.Component{
                     m--;
                 } else {
                     //mine locations
-                    console.log(`${rx},${ry}`);
+                    //console.log(`${rx},${ry}`);
                     rows[rx][ry].hasMine = true;
                 }
             }
@@ -63,6 +94,11 @@ class Board extends React.Component{
                 if (!current.hasMine && current.mineCount ===0){
                     this.checkAround(cell);
                 }
+            }
+
+            if (current.hasMine && this.props.openCell !== 0){
+                this.ended = true;
+                this.props.endGame();
             }
         }
         //console.log(this.state.rows);
@@ -94,13 +130,27 @@ class Board extends React.Component{
         }
         return count;
     };
+
+    flag = cell => {
+        if (this.props.status === "ended"){
+            return;
+        }
+        if (!cell.isOpen){
+            let rows = this.state.rows;
+            cell.hasFlag = !cell.hasFlag;
+            this.setState({rows: rows});
+            this.props.updateFlag(cell.hasFlag ? -1 : 1);
+        }
+    }
     
     render(){
         let rows = this.state.rows.map((row, index) => {
             return (<Row 
                         cells={row} 
                         key={index}
+                        flag = {this.flag}
                         open={this.open}
+                        ended={this.ended}
                 />);
     
         })
