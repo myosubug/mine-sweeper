@@ -11,8 +11,8 @@ class App extends React.Component {
       mode: "easy",
       row: 10,
       col: 10,
-      flag: 3,
-      mine: 3,
+      flag: 5,
+      mine: 5,
       openCell: 0
     };
     this.baseState = this.state;

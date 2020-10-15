@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   width: 800px;
-  height: 600px;
+  height: auto;
   border: 1px solid black;
   margin: auto;
 }
@@ -11,15 +11,15 @@
 }
 
 .board {
-  width: 799px;
-  height: 499px;
+  width: auto;
+  height: auto;
   border: 0.5px solid black;
   border-bottom: none;
 }
 
 .board .row {
   display: flex;
-  height: 49px;
+  height: 25px;
   border: 0.5px solid black;
 }
 
