@@ -13,7 +13,7 @@ class Board extends React.Component{
 
     componentWillReceiveProps(newProps){
         if (this.props.mode === newProps.mode){
-            if (this.props.openCell > newProps.openCell)
+            if (this.props.opened > newProps.opened)
             {
                 this.setState({
                     rows: this.initialize(newProps)  
@@ -24,7 +24,7 @@ class Board extends React.Component{
         }
         else {
         
-            if (this.props.openCell >= newProps.openCell){
+            if (this.props.opened >= newProps.opened){
             
             this.setState({
                 rows: this.initialize(newProps)  
@@ -96,7 +96,7 @@ class Board extends React.Component{
                 }
             }
 
-            if (current.hasMine && this.props.openCell !== 0){
+            if (current.hasMine && this.props.opened !== 0){
                 this.ended = true;
                 this.props.endGame();
             }
