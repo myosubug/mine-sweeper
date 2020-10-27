@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
-Live : https://myosubug.github.io/mine-sweeper/
+Try the deployed version here! -> https://myosubug.github.io/mine-sweeper/
 
 
 
